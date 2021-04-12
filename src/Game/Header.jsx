@@ -30,7 +30,7 @@ export default function Header() {
   useEffect(() => {
     
     const checkGameStartOrNot =setInterval( () =>{
-      setGameStarted(JSON.parse(localStorage.getItem('userData')).started)
+      setGameStarted( localStorage.getItem('userData') ? JSON.parse(localStorage.getItem('userData')).started : false )
     },500)
     
     const getUser =  setInterval(()=>{

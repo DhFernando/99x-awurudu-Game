@@ -251,7 +251,7 @@ function Index() {
                         <div  >
                             <button type="button" className="play__now__btn" onClick={ ()=>reloadPage() }  > 
                                 <p className="play__now__btn__sinhala">අයෙ සෙල්ලම් කරමු ද  ?</p>
-                                <p className="play__now__btn_english" >Let's play again ?</p>
+                                <p className="play__now__btn_english" >Let's play again ? | விளையாடுவோம்</p>
                             </button>
                         </div>
                     </>

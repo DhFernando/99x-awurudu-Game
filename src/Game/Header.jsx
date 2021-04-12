@@ -61,7 +61,7 @@ export default function Header() {
           </Typography> 
           {user ? (
             <div style={{ borderRight: '1px solid gray', marginInline: '10px', paddingRight: "10px", textAlign:"center" }}>
-              <p style={{ borderBottom : '1px solid gray', }} > Hi <strong>{user.name}</strong>  </p>
+              <p style={{ borderBottom : '1px solid gray', color:"black"}} > Hi <strong>{user.name}</strong>  </p>
               <p style={{ color:"black" }} >
                Your HS : <strong>{user.highestScore}</strong> | Last Score : <strong>{user.lastScore}</strong>
               </p>

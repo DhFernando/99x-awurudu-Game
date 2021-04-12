@@ -80,8 +80,7 @@ function Scorecard(){
             rows.push(
                     <tr id='data-row' key={data.email} className={top10UserStyle ? "currentPlayer" : ""}>
                         <td>{place}</td>     
-                        <td>{data.name}</td>
-                        <td>{data.email}</td>
+                        <td>{data.name}</td> 
                         <td>{data.score}</td>
                     </tr>
             )
@@ -107,8 +106,7 @@ function Scorecard(){
                     <thead>
                         <tr>
                             <th>Place</th>
-                            <th>Name</th>
-                            <th>Email</th>
+                            <th>Name</th> 
                             <th>Score</th> 
                         </tr>
                     </thead>

@@ -24,13 +24,13 @@ function Welcome() {
         }    
     }, [])
 
-    useEffect(()=>{
-        if(email.indexOf('@99x.io') === -1){
-            setVeryfiedEmail(false)
-        }else{
-            setVeryfiedEmail(true)
-        }
-    },[email])
+    // useEffect(()=>{
+    //     if(email.indexOf('@99x.io') === -1){
+    //         setVeryfiedEmail(false)
+    //     }else{
+    //         setVeryfiedEmail(true)
+    //     }
+    // },[email])
     
     const getPlayerData = async (email) =>{
             const ref = fire.database().ref();
@@ -81,21 +81,15 @@ function Welcome() {
                     <>
                         <div className="input__container">
                             <TextField className="inputs"
-                                onChange={(e)=>setName(e.target.value)}
+                                onChange={(e)=>{
+                                    setName(e.target.value)
+                                    setEmail( e.target.value )
+                                }}
                                 required
                                 id="outlined-required"
                                 label="Your name"
                                 variant="outlined"
                             /> 
-                        </div>
-                        <div className="input__container">
-                            <TextField className="inputs"
-                                onChange={(e)=>setEmail(e.target.value)}
-                                required
-                                id="outlined-required"
-                                label="Your office email"
-                                variant="outlined"
-                            />
                         </div>
                         <div>
                             { !veryfiedEmail ? <small style={{ color:'red', fontWeight:'700' }}>please enter valid company email</small> : null }

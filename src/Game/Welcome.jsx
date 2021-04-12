@@ -46,9 +46,9 @@ function Welcome() {
     let toGame = async () =>{   
         const data = await getPlayerData(email) 
         if( data ){
-         localStorage.setItem("userData", JSON.stringify({  name , email , completed: false , highestScore: data.score , lastScore : 0  }));   
+         localStorage.setItem("userData", JSON.stringify({  name , email , started: false ,completed: false , highestScore: data.score , lastScore : 0  }));   
         }else{
-            localStorage.setItem("userData", JSON.stringify({  name , email , completed: false , highestScore: 0 , lastScore : 0  })); 
+            localStorage.setItem("userData", JSON.stringify({  name , email , started: false ,completed: false , highestScore: 0 , lastScore : 0  })); 
         }
         history.push({ pathname: "/game" }) 
     }

@@ -144,6 +144,11 @@ function Index() {
 
     const getClickingCodinates = (e) =>{ 
         if(gameStarted){
+            localStorage.setItem( 'userData',
+                JSON.stringify({  ...JSON.parse( localStorage.getItem('userData') ),
+                started: false
+                })
+            )
             const canvas = canvasRef.current;
             var rect = canvas.getBoundingClientRect();
             guess_x = e.clientX - rect.left - 7 ;
@@ -159,6 +164,13 @@ function Index() {
         }
     }
     const stopEle = ()=>{  
+
+        localStorage.setItem( 'userData',
+             JSON.stringify({  ...JSON.parse( localStorage.getItem('userData') ),
+             started: true
+             })
+        )
+
         let plyBtn = document.getElementById("playBtn")
         plyBtn.innerHTML = "" 
         const refInterval = setInterval(()=>{
@@ -213,8 +225,6 @@ function Index() {
                     </>
                 ) : null
             } 
-
-            
 
             {
                 gameCompleted ? null : (

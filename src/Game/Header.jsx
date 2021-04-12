@@ -25,14 +25,24 @@ const useStyles = makeStyles((theme) => ({
 export default function Header() {
 
   const [user, setUser] = useState(null)
+  const [gameStartted, setGameStarted] = useState(null)
  
   useEffect(() => {
+    
+    const checkGameStartOrNot =setInterval( () =>{
+      setGameStarted(JSON.parse(localStorage.getItem('userData')).started)
+    },500)
+    
     const getUser =  setInterval(()=>{
       if( localStorage.getItem('userData')){
         setUser( JSON.parse(localStorage.getItem('userData')) )
         clearInterval(getUser) 
+        clearInterval(checkGameStartOrNot)
       }
     },1000)
+
+   
+
   }, [ user ])
 
   const classes = useStyles();
@@ -67,8 +77,11 @@ export default function Header() {
               </p>
             </div>
           ) : null}
-          <Button style={{ marginRight:'10px'}} onClick={ ()=>gotoScorecard() } variant="contained" color="secondary"><span style={{ textDecoration: 'none', color: 'white', fontWeight: '600' }}>Scorecard</span></Button>
-          <Button onClick={ ()=>gotoAbout() } variant="contained" color="secondary"><span style={{ textDecoration: 'none', color: 'white', fontWeight: '600' }}>About</span></Button>
+          {!gameStartted ?( 
+            <>
+              <Button style={{ marginRight:'10px'}} onClick={ ()=>gotoScorecard() } variant="contained" color="secondary"><span style={{ textDecoration: 'none', color: 'white', fontWeight: '600' }}>Scorecard</span></Button>
+              <Button onClick={ ()=>gotoAbout() } variant="contained" color="secondary"><span style={{ textDecoration: 'none', color: 'white', fontWeight: '600' }}>About</span></Button>
+          </>) : null}
         </Toolbar>
       </AppBar>
     </div>

@@ -101,8 +101,8 @@ function Index() {
     }
 
     const calculateScore = async (guessPoint) =>{
-        let score = 800 - Math.abs(actual_x - guessPoint); 
-
+        let score = 800 - Math.abs(actual_x - guessPoint);
+        score = parseFloat(score.toFixed(1));
         setScore( score )
         let userData = localStorage.getItem("userData");
         const obj = JSON.parse(userData);
@@ -153,11 +153,11 @@ function Index() {
             var rect = canvas.getBoundingClientRect();
             guess_x = e.clientX - rect.left - 7 ;
             guess_y =  e.clientY - rect.top - 7 ;
-
+            
             setGameCompleted( true )
             gameStarted = false
             elephentRun =false 
-            const { pageX,pageY } = e  
+            const { pageX,pageY } = e
             setTimeout(()=>{
                 calculateScore(pageX)
             }, 500) 

@@ -48,11 +48,9 @@ function Scorecard(){
 
     const CurrentUserRow = () => {
             return (
-    
                     <tr className="currentPlayer">
                         <td>-</td>
                         <td>{currentUser.name}</td>
-                        <td>{currentUser.email}</td>
                         <td>{currentUser.score}</td>
                     </tr>
             )

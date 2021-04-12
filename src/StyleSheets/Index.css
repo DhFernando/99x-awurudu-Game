@@ -15,12 +15,13 @@
     color: white
 }
 
+.canvas__container{
+    cursor: url(./../Game/gamedata/images/Pencil\ Fire.cur), auto;
+}
 .canvas{
     border: 8px groove yellow; 
     border-radius: 10px;
 }
-
-
 
 .play__now__btn {
     margin-top: 10%;
